@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra tinh hop le cua tai khoan!!!</title>
+</head>
+<body>
+    <script>
+        let patt = /^[_a-z0-9]{6,}$/;
+        let enter = '<br/>';
+
+        function checkAccount(str) {
+            if(patt.test(str)){
+                document.write("Ten tai khoan hop le!!!" + enter);
+            } else {
+                document.write("Ten tai khoan khong hop le!!!" + enter);
+            }
+        }
+
+        document.write("123abc_" + enter);
+        checkAccount("123abc_");
+
+        document.write("_abc123" + enter);
+        checkAccount("_abc123");
+
+        document.write("______" + enter);
+        checkAccount("______");
+
+        document.write("123456" + enter);
+        checkAccount("123456");
+
+        document.write("abcdefg" + enter);
+        checkAccount("abcdefg");
+
+        document.write(".@" + enter);
+        checkAccount(".@");
+
+        document.write("12345" + enter);
+        checkAccount("12345");
+
+        document.write("1234_" + enter);
+        checkAccount("1234_");
+
+        document.write("abcde" + enter);
+        checkAccount("abcde");
+
+    </script>
+</body>
+</html>
