@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap su dung bieu thuc chinh quy</title>
+</head>
+<body>
+    <script>
+        //Bài 1: Kiểm tra chuỗi đưa vào có đúng dạng dd/mm/yyyy
+        let enter = '<br/>';
+
+        function checkDay(str) {
+            let patt = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}/;
+            document.write(str + enter);
+            if(patt.test(str)){
+                document.write("Chuoi dua vao dung dinh dang ngay!!!" + enter);
+            } else {
+                document.write("Chuoi dua vao khong phai dinh dang ngay!!!" + enter);
+            }
+        }
+
+
+        //Bai 2: dem so tu trong 1 chuoi
+        function countWords(str) {
+            str = str.trim();
+            let count = 1;
+            let patt = /\s+/g;
+          while(patt.test(str)){
+              count++;
+          }
+            return count;
+        }
+
+        //bai 3: dem so nguyen am, phu am trong 1 chuoi
+        function countVowelConsonant(str) {
+            let patt1 = /(u|e|o|a|i|U|E|O|A|I)/g;
+            let patt2 = /[A-Za-z]/g;
+            let countVowel = 0;
+            let count = 0;
+            while (patt1.test(str))
+            {
+                countVowel++;
+            }
+
+            while (patt2.test(str))
+            {
+                count++;
+            }
+            document.write("so luong nguyen am la: " + countVowel + enter);
+            document.write("so luong phu am la: " + (count - countVowel) + enter);
+        }
+
+        //Bai 4: Kiem tra ma so bao mat: tu 0-9 gom 6 chu so
+        function checkCode(str) {
+            let patt = /^[0-9]{6}$/;
+            if(patt.test(str)) {
+                document.write("Ma so bao mat hop le!!!" + enter);
+            } else {
+                document.write("Ma so bao mat khong hop le!!!" + enter);
+            }
+        }
+
+        checkDay("31/10/1998");
+
+        let str = "  look at    mE!!!  i'm handsOme  boy    ";
+        document.write(str + enter);
+        document.write("Chuoi da cho co: " + countWords(str) + " tu!!!" + enter);
+        countVowelConsonant(str);
+
+        checkCode('123450')
+    </script>
+</body>
+</html>
