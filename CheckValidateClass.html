@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra ten lop</title>
+</head>
+<body>
+    <script>
+        let patt = /^(C|A|B)[0-9]{4}(G|H|I|K|L|M)$/;
+
+        function checkClass(str) {
+            if(patt.test(str)){
+                document.write("Ten lop hop le!!!" + "<br/>");
+            } else {
+                document.write("Ten lop khong hop le!!!" + "<br/>");
+            }
+        }
+
+        document.write("C0318G" + "<br/>");
+        checkClass("C0318G");
+
+        document.write("M0318G" + "<br/>");
+        checkClass("C318G");
+
+        document.write("P0323A" + "<br/>");
+        checkClass("C10323I");
+
+    </script>
+</body>
+</html>
