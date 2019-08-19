@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra ma quoc gia nuoc My</title>
+</head>
+<body>
+    <script>
+        let str = '10203 - 0021';
+        let patt = /^[0-9]{5}(?:-[0-9]{4})?$/;
+        if(patt.test(str)){
+            document.write("Day la ma nuoc My!!1");
+        } else {
+            document.write("Day khong phai la ma nuoc My!!!");
+        }
+    </script>
+</body>
+</html>
