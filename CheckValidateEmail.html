@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra email hop le hay khong???</title>
+</head>
+<body>
+    <script>
+        let patt = /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+
+        let enter = '<br />';
+        function checkEmail(str) {
+            if(patt.test(str)){
+                document.write("email hop le" + enter);
+            } else {
+                document.write("email khong hop le" + enter);
+            }
+        }
+
+        document.write("a@gmail.com" + enter);
+        checkEmail("a@gmail.com");
+
+        document.write("ab@gmail.com" + enter);
+        checkEmail("ab@gmail.com");
+
+        document.write("abc@gmail.com" + enter);
+        checkEmail("abc@gmail.com");
+
+        document.write("@gmail.com" + enter);
+        checkEmail("@gmail.com");
+
+        document.write("ab@gmail." + enter);
+        checkEmail("ab@gmail.");
+
+        document.write("@#abc@gmail.com" + enter);
+        checkEmail("@#abc@gmail.com");
+
+    </script>
+</body>
+</html>
