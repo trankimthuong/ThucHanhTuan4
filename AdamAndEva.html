@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam and Eva</title>
+</head>
+<body>
+    <script>
+
+        let enter = '<br/>';
+
+        let Apple = function () {
+            this.weight = 10;
+
+            this.decrease = function() {
+                this.weight--;
+            }
+
+            this.isEmpty = function() {
+                if(this.weight)
+                    return true;
+                else return false;
+            }
+
+            this.getWeight = function() {
+                return this.weight;
+            }
+
+        }
+
+        let Human = function (name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+
+            this.isMale = function() {
+                if(this.gender == 'male')
+                    return true;
+                else
+                    return false;
+            }
+
+            this.setGender = function(gender) {
+                this.gender = gender;
+            }
+
+            this.checkApple = function(apple) {
+                if(apple.getWeight == 0)
+                    return false;
+                else
+                    return true;
+            }
+
+            this.eat = function(apple) {
+                apple.decrease();
+                this.weight++;
+            }
+
+            this.say = function(str) {
+                document.write(this.name + " say: " + str + enter);
+            }
+
+            this.getName = function() {
+                return this.name;
+            }
+
+            this.setName = function(name) {
+                this.name = name;
+            }
+
+            this.getWeight = function() {
+                return this.weight;
+            }
+
+            this.setWeight = function(weight) {
+                this.weight = weight;
+            }
+        }
+
+        let apple = new Apple();
+        let Adam = new Human('Adam', 'male', 75);
+        let Eva = new Human('Eva', 'female', 55);
+        Eva.say("tao ngon qua");
+
+        while(apple.isEmpty()){
+            Eva.eat(apple);
+            Adam.eat(apple);
+            console.log("khoi luong qua tao con lai: " + apple.getWeight());
+        }
+
+        document.write("Sau khi an tao, Adam nang: " + Adam.getWeight() + " Eva nang: " + Eva.getWeight());
+    </script>
+</body>
+</html>
