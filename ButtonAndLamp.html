@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tuong tac giua button va lamp</title>
+</head>
+<body>
+    <script>
+        let enter = '<br/>';
+        let SwitchButton = function (status, lamp) {
+            this.status = status;
+            this.lamp = lamp;
+            
+            this.connectToLamp = function (electricLamp) {
+                if(this.status) {
+                    electricLamp.status = true;
+                } else {
+                    electricLamp.status = false;
+                }
+            }
+
+            this.switchOff = function () {
+                this.status = false;
+            }
+
+            this.switchOn = function () {
+                this.status = true;
+            }
+        }
+
+        let ElectricLamp = function (status) {
+            this.status = status;
+
+            this.turnOff = function () {
+                this.status = false;
+                document.write("Den tat" + enter);
+            }
+
+            this.turnOn = function () {
+                this.status = true;
+                document.write("Den bat" + enter);
+            }
+        }
+
+        let count = 0;
+        let lamp = new ElectricLamp(true);
+        let button = new SwitchButton(true, lamp);
+
+        while(count < 10){
+            button.switchOff();
+            button.connectToLamp(lamp);
+            lamp.turnOff();
+            button.switchOn();
+            button.connectToLamp(lamp);
+            document.write("<br/>trang thai den: " + lamp.status + "<br/>");
+            count++;
+        }
+    </script>
+</body>
+</html>
