@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dieu khien tivi</title>
+</head>
+<body>
+    <script>
+        let enter = '<br/>';
+
+        let Tivi = function (currentChannel, currentVolume, status) {
+            this.currentChannel = currentChannel;
+            this.currentVolume = currentVolume;
+            this.status = status;
+
+            this.getCurrentChannel = function () {
+                return this.currentChannel;
+            }
+
+            this.setCurrentChannel = function (channel) {
+                this.currentChannel = channel;
+            }
+
+            this.getCurrentVolume = function () {
+                return this.currentVolume;
+            }
+
+            this.setCurrentVolume = function (volume) {
+                this.currentVolume = volume;
+            }
+
+            this.getStatus = function () {
+                return this.status;
+            }
+
+            this.setStatus = function (status) {
+                this.status = status;
+            }
+        }
+
+        let Remote = function () {
+            this.turnOn = function (tivi) {
+                tivi.setStatus(true);
+            }
+
+            this.turnOff = function (tivi) {
+                tivi.setStatus(false);
+            }
+
+            this.controlChannel = function (tv, channel) {
+                tv.setCurrentChannel(channel);
+            }
+
+            this.controlVolumeDecrease = function (tv) {
+                if(tv.getCurrentVolume() > 0){
+                    tv.setCurrentVolume(tv.getCurrentVolume()-1);
+                }else{
+                    tv.setCurrentVolume(0);
+                }
+            }
+
+            this.controlVolumeRaise = function (tv) {
+                if(tv.getCurrentVolume() < 100){
+                    tv.setCurrentVolume(tv.getCurrentVolume()+1);
+                }else{
+                    tv.setCurrentVolume(100);
+                }
+            }
+        }
+
+
+        let remote = new Remote();
+        let tv = new Tivi(1, 24, false);
+        document.write("trang thai channeltv ban dau: " + tv.getCurrentChannel() + enter);
+        document.write("trang thai volumetv ban dau: " + tv.getCurrentVolume() + enter);
+        document.write("trang thai tv ban dau: " + tv.getStatus() + enter);
+        remote.turnOn(tv);
+        document.write("trang thai tv hien tai: " + tv.getStatus() + enter);
+
+        remote.controlChannel(tv, 7);
+        document.write("trang thai channeltv hien tai(7): " + tv.getCurrentChannel() + enter);
+
+        remote.controlChannel(tv, 3);
+        document.write("trang thai channeltv hien tai(3): " + tv.getCurrentChannel() + enter);
+
+        remote.controlVolumeDecrease(tv);
+        remote.controlVolumeDecrease(tv);
+        document.write("trang thai volumetv hien dai: " + tv.getCurrentVolume() + enter);
+
+        remote.turnOff(tv);
+        document.write("trang thai tv hien tai: " + tv.getStatus() + enter);
+    </script>
+</body>
+</html>
