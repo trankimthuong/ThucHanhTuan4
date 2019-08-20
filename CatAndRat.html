@@ -2,9 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Meo bat chuot</title>
 </head>
 <body>
+    <script>
+        let enter = '<br/>';
+        let Rat = function (name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
 
+            this.voice = function () {
+                document.write("chit chit chit" + enter);
+            }
+
+            this.setWeight = function (weight) {
+                this.weight = weight;
+            }
+
+            this.getWeight = function () {
+                return this.weight;
+            }
+
+            this.getStatus = function () {
+                return this.status;
+            }
+            this.getSpeed = function () {
+                return this.speed;
+            }
+            this.setStatus = function (bool) {
+                this.status = bool;
+            }
+        }
+
+        let Cat = function (name, weight, maxspeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxSpeed = maxspeed;
+
+            this.voice = function () {
+                document.write("meo meo meo" + enter);
+            }
+
+            this.catch = function (rat) {
+                if(this.maxSpeed > rat.getSpeed() && rat.getStatus() == true){
+                    rat.setStatus(false);
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            this.setWeight = function (weight) {
+                this.weight = weight;
+            }
+            this.eat = function (rat) {
+                   this.setWeight(this.weight + rat.getWeight());
+                    rat.setWeight(0);
+            }
+        }
+
+        let cat = new Cat('Tom', 20, 11);
+        let rat = new Rat('Jerry', 3, 10, true);
+        if(cat.catch(rat)){
+            document.write("meo san duoc chuot!!!" + enter);
+        }else{
+            document.write("meo khong san duoc chuot!!!" + enter);
+        }
+        cat.eat(rat);
+        document.write("khoi luong meo sau khi an: " + cat.weight + enter)
+        document.write("khoi luong chuot sau khi bi an: " + rat.weight + enter);
+    </script>
 </body>
 </html>
