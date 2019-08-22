@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim min max</title>
+</head>
+<body>
+    <script>
+        function findMin(arr) {
+            let min = arr[0];
+            for(let i = 0; i < arr.length; i++) {
+                if(min > arr[i]){
+                    min = arr[i];
+                }
+            }
+            return min;
+        }
+
+        function findMax(arr) {
+            let max = arr[0];
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i] > max){
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+
+        function dispArr(arr) {
+            let i = 0;
+            for(i; i < arr.length; i++){
+                document.write(arr[i] + ' ');
+                if(i % 9 == 0 && i !=0){
+                    document.write('<br/>');
+                }
+            }
+        }
+
+        let arr = [];
+        for(let i = 0; i < 100; i++){
+            arr[i] = Math.floor(Math.random() * 101);
+        }
+        let minValue = findMin(arr);
+        dispArr(arr);
+        document.write("<br/>");
+        document.write("The minimum value is: " + minValue);
+
+        let maxValue = findMax(arr);
+        document.write("<br/>");
+        document.write("The maximum value is: " + maxValue);
+    </script>
+</body>
+</html>
