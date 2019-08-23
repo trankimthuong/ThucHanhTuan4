@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dem so lan xuat hien cua phan tu trong mang!!!</title>
+</head>
+<body>
+    <script>
+        let num = [];
+        for(let i = 0; i < 100; i++){
+            num[i] = Math.floor(Math.random()*100);
+        }
+
+        function insertSort(arr) {
+            let j, temp;
+            for(let i = 1; i < arr.length; i++) {
+                j = i - 1;
+                temp = arr[i];
+                while (j >= 0 && temp < arr[j]) {
+                    arr[j + 1] = arr[j];
+                    j--;
+                }
+                arr[j+1] = temp;
+            }
+        }
+
+
+        
+        function disArr(arr) {
+            let i = 0;
+            for(i; i < arr.length; i++){
+                document.write(arr[i] + ' ');
+                if(i % 9 == 0 && i !=0){
+                    document.write('<br/>');
+                }
+            }
+        }
+
+        function binSearch(arr, value) {
+            let mid;
+            let min = 0;
+            let max = arr.length-1;
+            while(min <= max){
+                mid = Math.floor((min+max)/2)
+                if(arr[mid] == value){
+                    return mid;
+                }else if(arr[mid] < value) {
+                    min += 1;
+                }else{
+                    max -= 1;
+                }
+            }
+            return -1;
+        }
+
+        function count(arr, value) {
+            let count = 0;
+            var mid = binSearch(arr, value);
+            if(mid > -1){
+                ++count;
+                for(let i = mid - 1; i > 0; i--){
+                    if (arr[i] == value){
+                        count++;
+                    }
+                }
+                for(let i = mid + 1; i < arr.length; i++){
+                    if(arr[i] == value){
+                        count++
+                    }
+                }
+            }
+            return count;
+        }
+
+
+        disArr(num);
+        insertSort(num);
+        document.write("<br/>ham sau khi sap xep: <br/>");
+        disArr(num);
+        let value = parseInt(prompt("Nhap vao phan tu muon tim: "));
+        let result = count(num, value);
+        document.write("Phan tu can tim xuat hien: " + result + ' lan');
+
+    </script>
+</body>
+</html>
