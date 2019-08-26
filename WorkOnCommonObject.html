@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lam viec voi cac doi tuong thong dung</title>
+</head>
+<body>
+    <script>
+
+        // làm việc với đối tượng Date;
+        let birthday = new Date(1995, 11, 3, 12);
+        let currentDay = new Date();
+        let enter = '<br/>';
+
+        let tuoiNam = parseInt(currentDay.getFullYear()) - parseInt(birthday.getFullYear());
+        document.write("Tôi đã sống: " + tuoiNam + ' năm' + enter);
+        document.write("Tôi đã sống: " + tuoiNam*12 + ' tháng' + enter);
+        document.write("Tôi đã sống: " + tuoiNam*12*30 + ' ngày' + enter);
+        document.write("Tôi đã sống: " + tuoiNam*12*30*24 + ' giờ' + enter);
+        document.write("Tôi đã sống: " + tuoiNam*12*30*24*60 + ' phút' + enter);
+        document.write("Tôi đã sống: " + tuoiNam*12*30*24*3600 + ' giây' + enter);
+
+        //Làm việc với đối tượng Math;
+        document.write("Sinh số ngẫu nhiên từ 0-10: " + Math.floor(Math.random() * 11) + enter);
+        document.write("Sinh số ngẫu nhiên từ 0-400: " + Math.floor(Math.random() * 401) + enter);
+        document.write("Sinh số ngẫu nhiên từ 50-100: " + (Math.floor(Math.random() * 51) + 50) + enter);
+
+        document.write("Giá trị nhỏ nhất trong các số 5,7,2,9 la: " + Math.min(5,7,2,9) + enter);
+        document.write("5 lũy thừa 3 bằng: " + Math.pow(5,3) + enter);
+        document.write("Dien tich hinh tron co ban kinh la 5 la: " + Math.PI * 25 + enter);
+
+        //Làm việc với đối tượng String
+        let str = 'Toi yeu ngon ngu lap trinh Javascript';
+        document.write("Số lần xuất hiện chữ cái a trong chuỗi trên là: " + str.match(/a/g).length);
+        let arr = str.split(" ");
+        document.write("Hiển thị mảng arr sau khi tách chuỗi: " + enter);
+        document.write(arr[0] + enter);
+        document.write(arr[1] + enter);
+        document.write(arr[2] + enter);
+        document.write(arr[3] + enter);
+        document.write(arr[4] + enter);
+        document.write(arr[5] + enter);
+        document.write(arr[6] + enter);
+        document.write("Số lượng từ có trong chuỗi là: " + arr.length + enter);
+        str = str.replace(/javascript/i, 'Typescript');
+        document.write("Thay thế chuỗi Javascript bằng Typescript: " + str);
+    </script>
+</body>
+</html>
